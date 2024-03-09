@@ -43,6 +43,13 @@ func TestGetTotalCountFunc(t *testing.T) {
 		assert.Equal(totalPrice,660)
 	})
 
+	t.Run("Should return a total price using standard and discount pricing", func(t *testing.T) {
+
+		totalPrice :=c.GetTotalPrice(testP)
+
+		assert.Equal(totalPrice,500)
+	})
+
 }
 
 
