@@ -25,15 +25,22 @@ func TestScanFunc(t *testing.T) {
 func TestGetTotalCountFunc(t *testing.T) {
 	assert := assert.New(t)
 
-	c := Checkout {Basket: map[string]int { "A" : 6, "B": 3, "C": 2}}
+	c := Checkout {Basket: map[string]int { "A" : 6, "B": 3, "C": 0}}
+
+// 	testP := Prices{
+// 	"A" : 50,
+// 	"B" : 120,
+// 	"C" : 3,
+// 	"D" : 12,
+// }
 
 	
 
-	t.Run("Should return a total item count", func(t *testing.T) {
+	t.Run("Should return a total price using standard pricing", func(t *testing.T) {
 
-		itemCount :=c.GetTotalCount()
+		totalPrice :=c.GetTotalPrice()
 
-		assert.Equal(itemCount, 11)
+		assert.Equal(totalPrice,660)
 	})
 
 }
