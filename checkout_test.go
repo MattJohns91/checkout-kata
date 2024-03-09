@@ -27,18 +27,18 @@ func TestGetTotalCountFunc(t *testing.T) {
 
 	c := Checkout {Basket: map[string]int { "A" : 6, "B": 3, "C": 0}}
 
-// 	testP := Prices{
-// 	"A" : 50,
-// 	"B" : 120,
-// 	"C" : 3,
-// 	"D" : 12,
-// }
+	testP := Prices{
+	"A" : 50,
+	"B" : 120,
+	"C" : 3,
+	"D" : 12,
+}
 
 	
 
 	t.Run("Should return a total price using standard pricing", func(t *testing.T) {
 
-		totalPrice :=c.GetTotalPrice()
+		totalPrice :=c.GetTotalPrice(testP)
 
 		assert.Equal(totalPrice,660)
 	})

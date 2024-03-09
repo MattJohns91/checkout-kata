@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -27,6 +28,18 @@ func (c *Checkout) Scan(item string) {
 
 	c.Basket[prod]++
 
+}
+
+//func to return total price
+func (c *Checkout) GetTotalPrice(p Prices) int {
+	subTotal := 0
+
+	for item, count := range c.Basket {
+		fmt.Printf(" \nItem is %v, count is %v \n", item, count)
+		subTotal += (p[item] * count)
+	}
+
+	return subTotal
 }
 
 
