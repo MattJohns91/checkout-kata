@@ -8,16 +8,18 @@ import (
 func TestScanFunc(t *testing.T) {
 	assert := assert.New(t)
 
-	c := Checkout{}
+	c := Checkout{Basket: make(map[string]int)}
 
-	t.Run("Should return a slice with length correct length and handle lower case entries when called", func(t *testing.T) {
+	t.Run("Should return a map with correct counts and handle lower case entries when called", func(t *testing.T) {
 
-		expected := []string{"A","B"}
+		expected := map[string]int{"A": 1, "B":1}
 		c.Scan("A")
 		c.Scan("b")
 
 		assert.Equal(c.Basket, expected)
-		assert.Len(c.Basket, 2)
+		
 	})
 
 }
+
+

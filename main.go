@@ -1,27 +1,54 @@
 package main
 
-import "strings"
+import (
+	"strings"
+)
 
 type Checkout struct {
-	Basket []string
+	Basket map[string]int
 }
 
+// standard pricing
 type Prices map[string]int
 
-type OfferPrice struct {
+// offer pricing map
+type SpecialPrices map[string]Offer
+
+type Offer struct {
 	NumberNeeded int
 	DealPrice    int
 }
 
-//scan function to add item to basket
+// scan function to add item to basket
 func (c *Checkout) Scan(item string) {
 
+	//handle lowercase
 	prod := strings.ToUpper(item)
 
-	c.Basket = append(c.Basket, prod)
+	c.Basket[prod]++
 
 }
 
+
+
 func main() {
+
+	check := Checkout {Basket: make (map[string]int) }
+
+
+	check.Scan("A")
+	check.Scan("A")
+	check.Scan("B")
+	check.Scan("C")
+	check.Scan("D")
+	check.Scan("B")
+	check.Scan("B")
+
+
+
+	
+
+
+
 
 }
