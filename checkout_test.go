@@ -54,4 +54,19 @@ func TestGetTotalCountFunc(t *testing.T) {
 		assert.Equal(562, totalPrice)
 	})
 
+	t.Run("Should return different pricings with differing special pricing fed in", func(t *testing.T) {
+
+		c := Checkout{Basket: map[string]int{"A": 8, "B": 4, "C": 6}}
+		testSpecPrices2 := SpecialPrices{
+			"A": {16, 80},
+			"C": {6, 12},
+		}
+		test1:= c.GetTotalPrice(testP, testSpecPrices)
+		test2:= c.GetTotalPrice(testP, testSpecPrices2)
+
+
+		assert.NotEqual(test1, test2)
+	})
+	
+
 }
