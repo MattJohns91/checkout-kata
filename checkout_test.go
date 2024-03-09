@@ -67,6 +67,44 @@ func TestGetTotalCountFunc(t *testing.T) {
 
 		assert.NotEqual(test1, test2)
 	})
+
 	
 
+
+	
+
+}
+
+func TestGetTotalPriceFuncMain(t *testing.T) {
+	assert := assert.New(t)
+
+	t.Run("Test for main.go setup", func(t *testing.T) {
+
+		testC := Checkout{Basket: map[string]int{}}
+
+	testC.Scan("A")
+	testC.Scan("A")
+	testC.Scan("B")
+	testC.Scan("C")
+	testC.Scan("D")
+	testC.Scan("B")
+	testC.Scan("B")
+
+	prices := Prices {
+		"A": 50,
+		"B": 30,
+		"C": 20,
+		"D": 15,
+	}
+
+specialPrices := SpecialPrices{
+		"A": {3, 130},
+		"B": {2, 45},
+	}
+		test := testC.GetTotalPrice(prices, specialPrices)
+		
+
+
+		assert.Equal(210, test)
+	})
 }

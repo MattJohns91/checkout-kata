@@ -35,7 +35,7 @@ func (c *Checkout) GetTotalPrice(p Prices, sPrice SpecialPrices) int {
 	subTotal := 0
 
 	for item, count := range c.Basket {
-		fmt.Printf(" \nItem is %v, count is %v \n", item, count)
+		// fmt.Printf(" \nItem is %v, count is %v \n", item, count)
 
 		//check for special price available for item, then check special pricing threshold reached
 		if specialPrice, ok := sPrice[item]; ok && count >= specialPrice.NumberNeeded {
@@ -56,6 +56,18 @@ func main() {
 
 	check := Checkout{Basket: make(map[string]int)}
 
+	prices := Prices {
+				"A": 50,
+				"B": 30,
+				"C": 20,
+				"D": 15,
+			}
+		
+	specialPrices := SpecialPrices{
+				"A": {3, 130},
+				"B": {2, 45},
+			}
+
 	check.Scan("A")
 	check.Scan("A")
 	check.Scan("B")
@@ -64,6 +76,10 @@ func main() {
 	check.Scan("B")
 	check.Scan("B")
 
-	
+	total:= check.GetTotalPrice(prices, specialPrices)
+
+	fmt.Printf("Total is %v \n", total)
+
+
 
 }
