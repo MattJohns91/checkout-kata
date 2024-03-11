@@ -1,4 +1,4 @@
-module example.com/checkout
+module github.com/MattJohns91/checkout-kata
 
 go 1.21.3
 
