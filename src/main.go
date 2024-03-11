@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/MattJohns91/checkout-kata/checkout"
+	"github.com/MattJohns91/checkout-kata/src/checkout"
 )
 
 
