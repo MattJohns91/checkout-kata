@@ -3,9 +3,13 @@ Checkout is a service emulating a basic checkout system written in Golang.
 
 ### Usage
 `git clone git@github.com:MattJohns91/checkout-kata.git`
+
 `cd src/`  
+
 `go run main.go` for example use case.
+
 `cd src/checkout`
+
 `go test` to run unit tests.
 
 1. Import the checkout package.
