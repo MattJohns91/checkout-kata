@@ -12,6 +12,7 @@ Checkout is a service emulating a basic checkout system written in Golang.
 
 `go test` to run unit tests.
 
+### Package Use
 1. Import the checkout package.
 2. Create a new checkout instance (with empty basket, as seen in `main.go`).
 3. Scan items using the Scan method.
